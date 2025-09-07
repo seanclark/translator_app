@@ -6,7 +6,7 @@ It supports RTL languages, enforces a word limit, and includes copy-to-clipboard
 
 ## Features
 
-* Translate between 15+ languages
+* Translate between 14+ languages
 * Word limit (50 words) to keep things fast and cost-efficient
 * Right-to-left support for languages like Arabic and Hebrew
 * Copy icon with hover effect for clarity
