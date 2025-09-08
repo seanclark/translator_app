@@ -8,7 +8,6 @@ app = Flask(__name__)
 REPLICATE_API_TOKEN = os.getenv("REPLICATE_API_TOKEN")
 
 @app.route("/", methods=["GET", "POST"])
-@app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
         original_text = request.form["prompt"]
