@@ -38,25 +38,7 @@ def index():
         except Exception as e:
             print("Error during translation:", e)
             translated_text = "[Translation error]"
-
-        
-        # try:
-        #     output = replicate.run(
-        #         "yorickvp/llava-v1.6-vicuna-13b:0603dec596080fa084e26f0ae6d605fc5788ed2b1a0358cd25010619487eae63",
-        #         input={"prompt": full_prompt}
-        #     )
-        #     print("Raw output from Replicate:", output)
-                
-        #     if output and isinstance(output, list):
-        #     # Join non-empty strings into one clean sentence
-        #         translated_text = " ".join([line.strip() for line in output if line.strip()])
-        #     else:
-        #         translated_text = "[Translation failed or empty output]"
-
-        except Exception as e:
-            print("Error during translation:", e)
-            translated_text = "[Translation error]"
-
+    
         return render_template("index.html",
                                original_text=original_text,
                                translated_text=translated_text,
