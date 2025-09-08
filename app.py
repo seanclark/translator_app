@@ -27,7 +27,7 @@ def index():
 
         try:
             output = replicate.run(
-                "qwen/qwen3-235b-a22b-instruct-2507",
+                "yorickvp/llava-v1.6-vicuna-13b:0603dec596080fa084e26f0ae6d605fc5788ed2b1a0358cd25010619487eae63",
                 input={"prompt": full_prompt}
             )
             print("Raw output from Replicate:", output)
