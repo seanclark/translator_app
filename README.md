@@ -1,6 +1,6 @@
 ## Translator App
 
-This is a simple Flask-based translator app that uses Replicate’s Qwen model to translate short text between multiple languages. 
+This is a simple Flask-based translator app that uses Meta's yorickvp/llava-13b on Replica to translate short text between multiple languages. 
 I built it to test out model integration and keep the UI clean and usable. 
 It supports RTL languages, enforces a word limit, and includes copy-to-clipboard functionality.
 
@@ -15,6 +15,6 @@ It supports RTL languages, enforces a word limit, and includes copy-to-clipboard
 
 ## Licensing Information
 
-* Translator App uses Replicate model qwen/qwen3-235b-a22b-instruct-2507
-* Apache Version 2.0
+* Translator App uses Replicate model yorickvp/llava-13b by Meta
+* See license section for more information
 
