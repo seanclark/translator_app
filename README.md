@@ -3,7 +3,7 @@
 This is a simple Flask-based translator app that uses Meta's yorickvp/llava-13b on Replica to translate short text between multiple languages. 
 I built it to test out model integration and keep the UI clean and usable. The app was up and running locally for prototyping in a few hours.
 It supports RTL languages, enforces a word limit, and includes copy-to-clipboard functionality.
-## Live site
+## Live demo site
 https://translator-app-26nv.onrender.com/ (Please allow a minute for the site to load on Render)
 
 ## Features
