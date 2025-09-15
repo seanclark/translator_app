@@ -31,18 +31,6 @@
             <button type="submit" class="action-button">Translate</button>
         </form>
 
-{% if translated_text and "Translation" not in translated_text %}
-  <form id="ttsForm" action="/speak" method="POST" target="audioFrame">
-    <input type="hidden" name="translated_text" value="{{ translated_text }}">
-    <button type="submit">🔊 Play Translation</button>
-  </form>
-
-  <!-- Hidden iframe to trigger audio stream -->
-  <iframe name="audioFrame" style="display:none;" allow="autoplay"></iframe>
-{% endif %}
-
-
-
     {% if translated_text %}
     <div class="result-container fade-in">
         <div class="copy-icon" onclick="copyToClipboard()" title="Copy translation to clipboard">📋</div>
@@ -56,8 +44,18 @@
             <button type="submit" class="action-button">Clear</button>
         </form>
     </div>
-    
     {% endif %}
+    
+    {% if translated_text and "Translation" not in translated_text %}
+    <form id="ttsForm" action="/speak" method="POST" target="audioFrame">
+        <input type="hidden" name="translated_text" value="{{ translated_text }}">
+        <button type="submit">🔊 Play Translation</button>
+    </form>
+
+    <!-- Hidden iframe to trigger audio stream -->
+    <iframe name="audioFrame" style="display:none;" allow="autoplay"></iframe>
+    {% endif %}
+
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <script>
