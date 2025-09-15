@@ -31,19 +31,14 @@
             <button type="submit" class="action-button">Translate</button>
         </form>
 
-<form id="ttsForm" action="/speak" method="POST" target="audioFrame">
-  <input type="hidden" name="translated_text" value="{{ translated_text }}">
-  <button type="submit">🔊 Play Translation</button>
-</form>
+{% if translated_text and "Translation" not in translated_text %}
+  <form id="ttsForm" action="/speak" method="POST" target="audioFrame">
+    <input type="hidden" name="translated_text" value="{{ translated_text }}">
+    <button type="submit">🔊 Play Translation</button>
+  </form>
 
-<!-- Hidden iframe to trigger audio stream -->
-<iframe name="audioFrame" style="display:none;"></iframe>
-
-<!-- Audio player that plays the streamed result -->
-<audio id="ttsPlayer" controls autoplay>
-  <source src="/speak" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+  <iframe name="audioFrame" style="display:none;"></iframe>
+{% endif %}
 
 
     {% if translated_text %}
