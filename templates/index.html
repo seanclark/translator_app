@@ -50,26 +50,26 @@
     
         <audio id="ttsPlayer" style="display:none;"></audio>
     
-        <script>
-            function playTranslation() {
-              fetch("/speak", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: "translated_text={{ translated_text | urlencode }}"
-              })
-              .then(response => response.blob())
-              .then(blob => {
-                const audioUrl = URL.createObjectURL(blob);
-                const player = document.getElementById("ttsPlayer");
-                player.src = audioUrl;
-                player.style.display = "block";
-                player.play();
-              })
-              .catch(error => console.error("Audio playback error:", error));
-            }
-        </script>
+    <script>
+        function playTranslation() {
+            fetch("/speak", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "translated_text={{ translated_text | urlencode }}"
+            })
+            .then(response => response.blob())
+            .then(blob => {
+            const audioUrl = URL.createObjectURL(blob);
+            const player = document.getElementById("ttsPlayer");
+            player.src = audioUrl;
+            player.style.display = "block";
+            player.play();
+            })
+            .catch(error => console.error("Audio playback error:", error));
+        }
+    </script>
     {% endif %}
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
@@ -81,6 +81,5 @@
         });
     }
     </script>
-
 </body>
 </html>
