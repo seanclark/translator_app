@@ -45,17 +45,32 @@
         </form>
     </div>
     {% endif %}
-    
     {% if translated_text and "Translation" not in translated_text %}
-    <form id="ttsForm" action="/speak" method="POST" target="audioFrame">
-        <input type="hidden" name="translated_text" value="{{ translated_text }}">
-        <button type="submit" class="action-button" style="padding: 6px 12px; margin-top: 10px;">🔊 Play</button>
-    </form>
-
-    <!-- Hidden iframe to trigger audio stream -->
-    <iframe name="audioFrame" style="display:none;" allow="autoplay"></iframe>
+        <button onclick="playTranslation()" class="action-button" style="padding: 6px 12px; margin-top: 10px;">🔊 Play</button>
+    
+        <audio id="ttsPlayer" style="display:none;"></audio>
+    
+        <script>
+            function playTranslation() {
+              fetch("/speak", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: "translated_text={{ translated_text | urlencode }}"
+              })
+              .then(response => response.blob())
+              .then(blob => {
+                const audioUrl = URL.createObjectURL(blob);
+                const player = document.getElementById("ttsPlayer");
+                player.src = audioUrl;
+                player.style.display = "block";
+                player.play();
+              })
+              .catch(error => console.error("Audio playback error:", error));
+            }
+        </script>
     {% endif %}
-
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <script>
