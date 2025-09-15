@@ -37,8 +37,10 @@
     <button type="submit">🔊 Play Translation</button>
   </form>
 
-  <iframe name="audioFrame" style="display:none;"></iframe>
+  <!-- Hidden iframe to trigger audio stream -->
+  <iframe name="audioFrame" style="display:none;" allow="autoplay"></iframe>
 {% endif %}
+
 
 
     {% if translated_text %}
