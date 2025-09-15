@@ -6,8 +6,8 @@ import os
 
 app = Flask(__name__)
 
-def generate_audio_stream(text):
-    tts = gTTS(text)
+def generate_audio_stream(translated_text):
+    tts = gTTS(translated_text)
     audio_buffer = io.BytesIO()
     tts.write_to_fp(audio_buffer)
     audio_buffer.seek(0)
