@@ -6,13 +6,6 @@ import os
 
 app = Flask(__name__)
 
-def generate_audio_stream(translated_text):
-    tts = gTTS(translated_text)
-    audio_buffer = io.BytesIO()
-    tts.write_to_fp(audio_buffer)
-    audio_buffer.seek(0)
-    return audio_buffer
-
 REPLICATE_API_TOKEN = os.getenv("REPLICATE_API_TOKEN")
 
 @app.route("/", methods=["GET", "POST"])
@@ -57,13 +50,6 @@ def index():
                            original_text="",
                            translated_text=None,
                            selected_language="")
-
-# Route that calls the function and streams audio
-@app.route('/speak', methods=['POST'])
-def speak():
-    translated_text = request.form['translated_text']
-    audio_stream = generate_audio_stream(translated_text)
-    return send_file(audio_stream, mimetype='audio/mpeg')
 
 @app.route("/clear", methods=["POST"])
 def clear():
