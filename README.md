@@ -26,5 +26,5 @@ https://translator-app-26nv.onrender.com/ (Please allow a minute for the site to
 ## Licensing Information
 
 * Translator App uses Replicate model yorickvp/llava-13b by Meta
-* See license section for more information
+* See license information on Meta's website (getting link)
 
